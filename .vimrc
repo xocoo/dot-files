@@ -37,12 +37,14 @@ au BufEnter *.py nmap <F8> :w<CR>:Pytest file<CR>
 au BufEnter *.py nmap <F9> :w<CR>:!python -m doctest %<CR>
 
 " F4: Switch on/off Tagbar
+let g:tagbar_ctags_bin='/usr/local/bin/ctags' " Proper Ctags locations
+let g:tagbar_width=26
 let g:tagbar_usearrows = 1
 nnoremap <silent> <F4> :TagbarToggle<CR>
 
 "Gundo
 nnoremap <F10> :GundoToggle<CR>
-let g:gundo_width = 30
+let g:gundo_width = 40
 let g:gundo_preview_height = 30
 
 set encoding=utf8       " Set encoding UTF-8
