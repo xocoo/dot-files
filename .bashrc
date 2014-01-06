@@ -13,3 +13,6 @@ alias work='cd ~/Workspace'
 alias gpush='git push'
 alias gpull='git pull'
 alias gclone='git clone'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
