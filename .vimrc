@@ -16,31 +16,38 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'sjl/gundo.vim'
 Bundle 'samsonw/vim-task'
-
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'nvie/vim-flake8'
+Bundle 'jelera/vim-javascript-syntax'
 
 filetype on
 syntax on
 filetype plugin indent on
+"au FileType javascript call JavaScriptFold()
 
 "Color scheme"
 set t_Co=256
 let g:molokai_original = 1
 set background=dark
+"set background=light
 colorscheme solarized
 let g:solarized_termcolors=256
 call togglebg#map("<F2>")
-
-" Python run
-" F5 checks pep8
-au BufEnter *.py nmap <F6> :w<CR>:!time python "%"<CR>
-au BufEnter *.py nmap <F8> :w<CR>:Pytest file<CR>
-au BufEnter *.py nmap <F9> :w<CR>:!python -m doctest %<CR>
 
 " F4: Switch on/off Tagbar
 let g:tagbar_ctags_bin='/usr/local/bin/ctags' " Proper Ctags locations
 let g:tagbar_width=26
 let g:tagbar_usearrows = 1
 nnoremap <silent> <F4> :TagbarToggle<CR>
+
+" Python run
+au BufEnter *.py nmap <F6> :w<CR>:!time python "%"<CR>
+au BufEnter *.py nmap <F8> :w<CR>:Pytest file<CR>
+au BufEnter *.py nmap <F9> :w<CR>:!python -m doctest %<CR>
+
+
+" Vim-task
+noremap <silent> <buffer> cc :call Toggle_task_status()<CR>
 
 "Gundo
 nnoremap <F10> :GundoToggle<CR>
@@ -59,21 +66,6 @@ set hidden              " Undo history save when changing buffers
 set number              " Line number enable
 set numberwidth=1       " Line number width
 
-"*** Statusbar ***{{{1
-set laststatus=2 
-set statusline=[%n]
-set statusline+=%<%F
-set statusline+=%m 
-set statusline+=%r 
-set statusline+=%w 
-set statusline+=[%{&fileformat}] 
-set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}] 
-set statusline+=%y 
-set statusline+=%= 
-set statusline+=[ASCII=%B] 
-set statusline+=[COL=%c,L=%l/%L] 
-set statusline+=[%p%%] 
-"}}}1
 
 "Tabstop"
 set tabstop=4
